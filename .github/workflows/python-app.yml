@@ -2,18 +2,22 @@
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
 name: Python application
-
+# Event 언제 Workflow가 실행될 것인가?
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
 
+# jobs 정의, build는 job의 이름!
 jobs:
   build:
 
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-latest # ubuntu 환경에서 실행될 것이다. / OS환경을 의미함
+    # uses : 사용할 github Action 
+    # name : Step의 이름을 말한다.
+    # uses가 없는 경우( ex) Install dependencises) 직접 run에 shell script 작성 후 실행
+    
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.10
